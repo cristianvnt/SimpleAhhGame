@@ -97,7 +97,7 @@ void FramebufferSizeCallback(GLFWwindow* window, int width, int height)
 
 void ClearScreen()
 {
-	GL_CHECK(glClearColor(0.5f, 0.1f, 0.7f, 1.f));
+	GL_CHECK(glClearColor(0.5f, 0.5f, 0.7f, 1.f));
 	GL_CHECK(glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT));
 }
 
