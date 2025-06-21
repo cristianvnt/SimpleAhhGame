@@ -1,6 +1,15 @@
-bin/
-build/
-out/
+/bin/
+/out/
+/build/
+*.sln
+*.vcxproj
+*.vcxproj.filters
+
+# Fetched dependencies
+/libs/glfw/
+/libs/glm/
+/libs/glad/
+/libs/third_party/
 
 # IDE files
 /.vs/
@@ -12,9 +21,9 @@ CMakeFiles/
 CMakeCache.txt
 cmake_install.cmake
 Makefile
+*.cmake
 
-# Prerequisites
-*.d
+*.pdb
 
 # Compiled Object files
 *.slo

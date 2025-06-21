@@ -1,4 +1,5 @@
-cmake_minimum_required(VERSION 3.28)
+cmake_minimum_required(VERSION 3.10...3.30)
+cmake_policy(VERSION 3.10...3.30)
 project(SimpleAhhGame C CXX)
 
 set(CMAKE_CXX_STANDARD 17)
@@ -14,6 +15,12 @@ file(MAKE_DIRECTORY ${CMAKE_SOURCE_DIR}/libs)
 file(MAKE_DIRECTORY ${CMAKE_SOURCE_DIR}/libs/third_party)
 
 # Declare dependencies
+
+# GLAD validation
+if(NOT EXISTS ${CMAKE_SOURCE_DIR}/libs/glad/src/glad.c)
+    message(WARNING "GLAD not found. Download from https://glad.dav1d.de (API: Core, Profile: Core, Version: 4.6)")
+    message(FATAL_ERROR "GLAD required in libs/glad/")
+endif()
 
 # GLFW
 FetchContent_Declare(
@@ -41,12 +48,6 @@ FetchContent_Declare(
 )
 
 FetchContent_MakeAvailable(glfw glm stb)
-
-# GLAD validation
-if(NOT EXISTS ${CMAKE_SOURCE_DIR}/libs/glad/src/glad.c)
-    message(WARNING "GLAD not found. Download from https://glad.dav1d.de (API: Core, Profile: Core, Version: 4.6)")
-    message(FATAL_ERROR "GLAD required in libs/glad/")
-endif()
 
 # Library targets
 # GLAD (local loader)
