@@ -3,15 +3,9 @@
 
 #include <glad/glad.h>
 
-enum class ShaderType
-{
-	VERTEX = GL_VERTEX_ARRAY,
-	FRAGMENT = GL_FRAGMENT_SHADER
-};
-
 namespace LOG
 {
-	void LogShader(unsigned int shader, ShaderType type);
+	void LogShader(unsigned int shader, unsigned int type);
 	void LogProgram(unsigned int programID);
 }
 

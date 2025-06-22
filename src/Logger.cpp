@@ -2,10 +2,10 @@
 
 #include <iostream>
 
-void LOG::LogShader(unsigned int shader, ShaderType type)
+void LOG::LogShader(unsigned int shader, unsigned int type)
 {
 	int success;
-	glGetShaderiv(shader, GL_COMPILE_STATUS, &success);
+	GL_CHECK(glGetShaderiv(shader, GL_COMPILE_STATUS, &success));
 	if (success)
 		return;
 
@@ -17,10 +17,10 @@ void LOG::LogShader(unsigned int shader, ShaderType type)
 		{
 			switch (type)
 			{
-			case ShaderType::VERTEX:
+			case GL_VERTEX_SHADER:
 				return "VERTEX";
 				break;
-			case ShaderType::FRAGMENT:
+			case GL_FRAGMENT_SHADER:
 				return "FRAGMENT";
 				break;
 			default:
@@ -33,7 +33,7 @@ void LOG::LogShader(unsigned int shader, ShaderType type)
 void LOG::LogProgram(unsigned int programID)
 {
 	int success;
-	glGetProgramiv(programID, GL_LINK_STATUS, &success);
+	GL_CHECK(glGetProgramiv(programID, GL_LINK_STATUS, &success));
 	if (success)
 		return;
 
